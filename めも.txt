@@ -1,0 +1,20 @@
+コミットが完了しました。以下のコマンドをターミナルで実行してプッシュしてください。
+
+cd /tmp/profile
+git push -u origin main
+
+プッシュ後、GitHub Pagesを有効化する必要があります。以下の手順で設定してください。
+GitHub Pagesの有効化手順：
+1. https://github.com/shotaDaikohara/profile/settings/pages を開く
+2. Source を Deploy from a branch に設定
+3. Branch を main / /(root) に設定して Save
+設定後、数分で https://shotadaikohara.github.io/profile/ でページが公開されます。
+
+作成したページの内容：
+* ヘロー：キャッチコピーとCTAボタン
+* 支援できること：4つのカード形式
+* 相談テーマ例：チェックリスト形式
+* 実績：タグ付きカード
+* 強み：ダークネイビーのボックス
+* 協業イメージ・プロフィール・お問い合わせ
+レスポンシブ対応済みで、スマートフォンでも読みやすいデザインになっています。
