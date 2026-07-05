@@ -14,7 +14,6 @@
     :root {
       --accent: #3894f0;
       --accent-dark: #1f6fd1;
-      --accent-bg: #eaf3fe;
       --navy: #1c2b45;
       --text: #232939;
       --text-sub: #6b7280;
@@ -22,8 +21,6 @@
       --page-bg: #eef1f4;
       --white: #ffffff;
       --radius: 10px;
-      --green: #17a673;
-      --amber: #c2820a;
     }
 
     body {
@@ -42,56 +39,19 @@
       padding: 0 20px;
     }
 
-    /* ---- TOP NAV ---- */
-    .topnav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-    .topnav-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 20px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .brand { font-weight: 700; font-size: 15px; color: var(--navy); white-space: nowrap; }
-    .tabs {
-      display: flex;
-      gap: 4px;
-      overflow-x: auto;
-    }
-    .tabs a {
-      display: block;
-      padding: 8px 14px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-sub);
-      text-decoration: none;
-      border-radius: 100px;
-      white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
-    }
-    .tabs a:hover { background: var(--accent-bg); color: var(--accent-dark); }
-
     /* ---- COVER + PROFILE HEADER ---- */
     .cover {
-      height: 150px;
+      height: 200px;
       background: linear-gradient(120deg, #16233d 0%, #23375c 55%, #2c5aa0 100%);
+      display: flex;
+      align-items: flex-end;
     }
 
     .profile-header {
       display: flex;
       align-items: flex-end;
       gap: 24px;
-      padding: 0 20px;
-      transform: translateY(-46px);
-      margin-bottom: -30px;
+      padding-bottom: 24px;
       flex-wrap: wrap;
     }
 
@@ -114,26 +74,15 @@
     }
 
     .identity { padding-bottom: 8px; flex: 1; min-width: 240px; }
-    .identity h1 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .identity .meta { font-size: 13px; color: var(--text-sub); display: flex; flex-wrap: wrap; gap: 6px 10px; }
-    .identity .meta span::after { content: "・"; margin-left: 10px; color: #c7ccd4; }
+    .identity h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .identity .meta { font-size: 13px; color: rgba(255,255,255,0.78); display: flex; flex-wrap: wrap; gap: 6px 10px; }
+    .identity .meta span::after { content: "・"; margin-left: 10px; color: rgba(255,255,255,0.4); }
     .identity .meta span:last-child::after { content: none; }
 
     .header-cta { padding-bottom: 8px; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: var(--accent-dark); }
+    .header-email { font-size: 14px; font-weight: 700; color: #fff; }
+
+    .mail-text { font-size: 13.5px; font-weight: 700; color: var(--navy); }
 
     /* ---- LAYOUT ---- */
     .layout {
@@ -180,55 +129,6 @@
     .consult-card .q { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
     .consult-card .a { font-size: 13px; color: var(--text-sub); }
 
-    /* ---- TIMELINE ---- */
-    .timeline { position: relative; padding-left: 46px; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 15px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item { position: relative; margin-bottom: 40px; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-icon {
-      position: absolute;
-      left: -46px;
-      top: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-    }
-    .timeline-when { font-size: 12.5px; color: var(--text-sub); margin-bottom: 4px; }
-    .timeline-org { font-size: 16px; font-weight: 700; color: var(--navy); }
-    .timeline-org .dur { font-size: 12.5px; font-weight: 500; color: var(--text-sub); margin-left: 8px; }
-    .timeline-role { font-size: 13px; color: var(--text-sub); margin: 4px 0 14px; }
-
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 12px;
-    }
-    .proj-card {
-      background: linear-gradient(135deg, #2c5aa0, #3894f0);
-      color: #fff;
-      border-radius: 8px;
-      padding: 16px 18px;
-    }
-    .proj-card .t { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; }
-    .proj-card .d { font-size: 12.5px; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 8px; }
-    .proj-card .when { font-size: 11.5px; color: rgba(255,255,255,0.75); }
-
-    .plain-desc { font-size: 13.5px; color: var(--text-sub); }
-
     /* ---- TWO COLUMN SKILLS ---- */
     .two-col {
       display: grid;
@@ -254,48 +154,14 @@
     .role-card .t { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
     .role-card .d { font-size: 12.5px; color: var(--text-sub); }
 
-    /* ---- 対応範囲 two column ---- */
-    .range-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-    .range-col.ok h4 { color: var(--green); }
-    .range-col.ask h4 { color: var(--amber); }
-    .range-list { display: grid; gap: 10px; list-style: none; }
-    .range-list li { font-size: 13px; color: var(--text-sub); padding-left: 18px; position: relative; }
-    .range-col.ok .range-list li::before { content: "○"; position: absolute; left: 0; color: var(--green); }
-    .range-col.ask .range-list li::before { content: "△"; position: absolute; left: 0; color: var(--amber); }
-
     /* ---- SIDEBAR ---- */
     .side-col { position: sticky; top: 76px; display: grid; gap: 16px; }
-
-    .status-card {
-      background: linear-gradient(135deg, #16233d, #2c5aa0);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 22px 22px;
-    }
-    .status-card h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; }
-    .status-card p { font-size: 12.5px; color: rgba(255,255,255,0.85); margin-bottom: 16px; line-height: 1.8; }
-    .status-card .btn-primary { width: 100%; justify-content: center; background: #fff; color: var(--accent-dark); }
-    .status-card .btn-primary:hover { background: #eef3fb; }
 
     .side-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
     .side-card h4 { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
     .side-list { display: grid; gap: 12px; }
     .side-check-row { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: var(--text-sub); }
     .side-check-row .mark { color: var(--accent); font-weight: 700; flex-shrink: 0; }
-
-    .side-achv-row dt { font-size: 12.5px; font-weight: 700; color: var(--navy); }
-    .side-achv-row dd { font-size: 11.5px; color: var(--text-sub); margin-top: 2px; }
-
-    /* ---- CONTACT ---- */
-    .contact-section { padding: 0 0 60px; }
-    .contact-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 44px;
-      text-align: center;
-    }
-    .contact-box p { font-size: 14.5px; color: var(--text-sub); margin-bottom: 24px; }
 
     footer {
       text-align: center;
@@ -316,29 +182,13 @@
       .profile-header { transform: translateY(-34px); margin-bottom: -18px; }
       .avatar { width: 84px; height: 84px; }
       .card { padding: 22px 18px; }
-      .contact-box { padding: 28px 20px; }
     }
   </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <span class="brand">大小原 翔太</span>
-    <div class="tabs">
-      <a href="#profile">プロフィール</a>
-      <a href="#career">経歴</a>
-      <a href="#skills">スキル</a>
-      <a href="#range">対応範囲</a>
-      <a href="#contact">お問い合わせ</a>
-    </div>
-  </div>
-</nav>
-
-<div class="cover"></div>
-
-<div class="container">
-  <div class="profile-header">
+<div class="cover">
+  <div class="profile-header container">
     <div class="avatar"><img src="avatar.png" alt="大小原 翔太"></div>
     <div class="identity">
       <h1>大小原 翔太</h1>
@@ -349,10 +199,12 @@
       </div>
     </div>
     <div class="header-cta">
-      <a href="mailto:daikoharakanta@gmail.com" class="btn-primary">✉️ メールで相談する</a>
+      <p class="header-email">✉️ daikoharakanta@gmail.com</p>
     </div>
   </div>
+</div>
 
+<div class="container">
   <main class="layout">
     <div class="main-col">
 
@@ -392,86 +244,13 @@
         </div>
       </section>
 
-      <section id="career" class="card">
-        <p class="block-title">経歴</p>
-        <div class="timeline">
-
-          <div class="timeline-item">
-            <div class="timeline-icon">💼</div>
-            <p class="timeline-when">2023年3月 - 現在</p>
-            <p class="timeline-org">フリーランス<span class="dur">3年間</span></p>
-            <p class="timeline-role">機械学習エンジニア / AI導入コンサル</p>
-            <div class="proj-grid">
-              <div class="proj-card">
-                <p class="t">AI駆動開発支援</p>
-                <p class="d">DXを推進するための社内ポータル作成。コンサル / PMとして従事。</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">大東建託様 AI導入プロジェクト</p>
-                <p class="d">AI導入プロジェクトで、PoCから運用まで担当。コンサル / PM。</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">営業支援AIシステム</p>
-                <p class="d">営業ロールプレイをAIで支援するシステムを開発。約3,000人規模で利用される本番システムとして稼働。</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">生成AIによる着せ替え機能開発</p>
-                <p class="d">人物画像と服画像から、試着画像の生成機能を開発。</p>
-                <p class="when">2024年1月</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">ChatGPTを用いた健康管理ツール開発</p>
-                <p class="d">ChatGPTを用いた健康状態へのコメント機能を開発。また、自然言語処理で危険状態のユーザーを自動検知する機能を開発。</p>
-                <p class="when">2023年12月</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">与信モデル開発</p>
-                <p class="d">AutoMLを用いて与信モデル改良を行いました。既存モデルがある状態から、新データを用いて予測精度を改善。</p>
-                <p class="when">2023年6月 - 2023年9月</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">画像解析</p>
-                <p class="d">画像から物体検出や状態を数値化するモデルのチーム開発やPoCを担当。アノテーション作業からモデル作成まで実施。</p>
-                <p class="when">2023年5月 - 2023年8月</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-icon">🏢</div>
-            <p class="timeline-when">2021年12月 - 2023年2月</p>
-            <p class="timeline-org">コグラフ株式会社<span class="dur">1年間</span></p>
-            <p class="timeline-role">SES / データアナリティクス部</p>
-            <div class="proj-grid">
-              <div class="proj-card">
-                <p class="t">Webアプリのai機能開発</p>
-                <p class="d">機械学習UIの開発に関わりました。テスト計画・実行、バグ原因特定・修正、AWSへの環境移設を担当。</p>
-                <p class="when">2022年4月 - 2022年11月</p>
-              </div>
-              <div class="proj-card">
-                <p class="t">自然言語処理を用いたPoC案件</p>
-                <p class="d">コンテンツに付与された言語情報から、カテゴリ分けを自動化する技術を検討。クライアントとの会議で要望を抽出し、技術内容を整理。</p>
-                <p class="when">2022年2月 - 2022年4月</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-icon">🏭</div>
-            <p class="timeline-when">2018年4月 - 2021年11月</p>
-            <p class="timeline-org">中外製薬工業<span class="dur">4年間</span></p>
-            <p class="timeline-role">一般社員</p>
-            <p class="plain-desc">医薬品の製造、品質管理</p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-icon">🎓</div>
-            <p class="timeline-when">2016年4月 - 2018年3月</p>
-            <p class="timeline-org">群馬大学大学院 理工学府<span class="dur">2年間</span></p>
-            <p class="timeline-role">物質生命理工学専攻</p>
-            <p class="plain-desc">バイオ医薬品の安定性について研究</p>
-          </div>
-
+      <section class="card">
+        <p class="block-title">主な実績</p>
+        <div class="role-grid">
+          <div class="role-card"><p class="t">大東建託様 AI導入プロジェクト</p><p class="d">コンサル / PM</p></div>
+          <div class="role-card"><p class="t">営業支援AIシステム</p><p class="d">約3,000人規模で稼働・コンサル / PM</p></div>
+          <div class="role-card"><p class="t">生成AIによる着せ替え機能開発</p><p class="d">2024年1月・AIエンジニア</p></div>
+          <div class="role-card"><p class="t">与信モデル開発</p><p class="d">2023年6月 - 2023年9月・AIエンジニア</p></div>
         </div>
       </section>
 
@@ -516,36 +295,8 @@
         </div>
       </section>
 
-      <section id="range" class="card">
-        <p class="block-title">対応範囲について</p>
-        <div class="two-col">
-          <div class="range-col ok">
-            <h4>○ 対応可能</h4>
-            <ul class="range-list">
-              <li>要件整理</li>
-              <li>PoC設計</li>
-              <li>見積レビュー</li>
-              <li>生成AI活用相談</li>
-              <li>開発PM支援</li>
-              <li>技術的な壁打ち</li>
-            </ul>
-          </div>
-          <div class="range-col ask">
-            <h4>△ 要相談</h4>
-            <ul class="range-list">
-              <li>大規模な基幹システム全体設計</li>
-              <li>長期常駐</li>
-              <li>大規模インフラ設計</li>
-              <li>完全成果報酬型の営業代行</li>
-              <li>法務・セキュリティの専門判断</li>
-              <li>大人数開発チームの直接管理</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <section class="card">
-        <p class="block-title">プロフィール</p>
+        <p class="block-title">経歴</p>
         <p class="lead-title" style="font-size:18px;">大小原 翔太</p>
         <p class="lead-text" style="color:var(--accent-dark); font-weight:500; margin-bottom:16px;">AI導入支援 / コンサル</p>
         <p class="lead-text">大学院修了後、製薬会社で医薬品の製造開発・品質管理に従事。メーカーの現場を経験。その後IT業界へ転向し、プログラマーとしてWebアプリケーションやAI機能開発に関わる。</p>
@@ -555,12 +306,6 @@
     </div>
 
     <aside class="side-col">
-      <div class="status-card">
-        <h4>ご相談について</h4>
-        <p>協業相談、顧客案件の技術支援、スポット相談などを随時受け付けています。</p>
-        <a href="mailto:daikoharakanta@gmail.com" class="btn-primary">メールで相談する</a>
-      </div>
-
       <div class="side-card">
         <h4>対応しやすい相談</h4>
         <div class="side-list">
@@ -573,28 +318,14 @@
         </div>
       </div>
 
-      <div class="side-card">
-        <h4>主な実績</h4>
-        <dl class="side-list">
-          <div class="side-achv-row"><dt>大東建託様 AI導入プロジェクト</dt><dd>コンサル / PM</dd></div>
-          <div class="side-achv-row"><dt>営業支援AIシステム</dt><dd>約3,000人規模で稼働・コンサル / PM</dd></div>
-          <div class="side-achv-row"><dt>生成AIによる着せ替え機能開発</dt><dd>2024年1月・AIエンジニア</dd></div>
-          <div class="side-achv-row"><dt>与信モデル開発</dt><dd>2023年6月 - 2023年9月・AIエンジニア</dd></div>
-        </dl>
+      <div id="contact" class="side-card">
+        <h4>お問い合わせ</h4>
+        <p style="font-size:12.5px; color:var(--text-sub); margin-bottom:14px; line-height:1.8;">協業相談、顧客案件の技術支援、スポット相談などはメールにてご連絡ください。</p>
+        <p class="mail-text">✉️ daikoharakanta@gmail.com</p>
       </div>
     </aside>
   </main>
 </div>
-
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-box">
-      <p class="block-title" style="border:none; padding:0; justify-content:center;">お問い合わせ</p>
-      <p>協業相談、顧客案件の技術支援、スポット相談などはメールにてご連絡ください。</p>
-      <a href="mailto:daikoharakanta@gmail.com" class="btn-primary">✉️ daikoharakanta@gmail.com</a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <p>© 2025 大小原 翔太. All rights reserved.</p>
