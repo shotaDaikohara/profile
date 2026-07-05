@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大小原 翔太 | AI導入支援・業務システム化の技術相談パートナー</title>
+  <meta name="description" content="AI活用や業務システム化を進めたい企業・支援会社向けに、要件整理、PoC設計、見積レビュー、生成AI導入支援を行っています。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-mid: #243460;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --text: #1e293b;
+      --text-sub: #475569;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a8a 100%);
+      color: #fff;
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: clamp(14px, 2vw, 16px);
+      line-height: 1.9;
+      color: rgba(255,255,255,0.85);
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: #1d4ed8; }
+
+    /* ---- LAYOUT ---- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 64px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    /* ---- CARDS ---- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--navy);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    /* ---- LIST ---- */
+    .topic-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .topic-item::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .topic-item span {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* ---- ACHIEVEMENT ---- */
+    .achievement {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .achievement:last-child { margin-bottom: 0; }
+
+    .achievement-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .achievement-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .achievement h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .achievement p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ---- STRENGTH ---- */
+    .strength-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius);
+      padding: 40px;
+      color: #fff;
+    }
+
+    .strength-box p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 16px;
+    }
+    .strength-box p:last-child { margin-bottom: 0; }
+
+    /* ---- COLLAB ---- */
+    .collab-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .collab-box p {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .collab-box p:last-child { margin-bottom: 0; }
+
+    /* ---- PROFILE ---- */
+    .profile-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+
+    .profile-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .profile-title {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .profile-bio {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .profile-bio:last-child { margin-bottom: 0; }
+
+    /* ---- CONTACT ---- */
+    .contact-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .contact-box p {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 28px;
+    }
+
+    .contact-mail {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 100px;
+      padding: 14px 36px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .contact-mail:hover { background: var(--navy-mid); }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--text-sub);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 56px; }
+      .cards { grid-template-columns: 1fr; }
+      .achievement, .strength-box, .collab-box, .profile-card, .contact-box { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-badge">AI導入支援 / 技術相談パートナー</p>
+  <h1>AIを「検討だけ」で終わらせない、<br>技術が分かるコンサルタント</h1>
+  <p>AI活用や業務システム化を進めたい企業・支援会社向けに、<br>要件整理・PoC設計・見積レビュー・生成AI導入支援を行っています。</p>
+  <a href="#contact" class="hero-cta">お問い合わせはこちら</a>
+</header>
+
+<main class="container">
+
+  <!-- 支援できること -->
+  <section id="services">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">支援できること</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>AI導入・生成AI活用の相談</h3>
+        <p>「AIを使いたいが、何から始めればよいか分からない」という段階から、業務課題の整理、活用可能性の検討、PoC設計まで支援します。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>要件整理・開発依頼の整理</h3>
+        <p>業務要件を整理し、開発会社に依頼できる形まで落とし込みます。「何を作るべきか」「どこまでを初期開発に含めるか」を明確にします。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>見積・提案内容のレビュー</h3>
+        <p>開発会社からの見積や提案について、技術的な妥当性、工数感、リスク、過不足を確認します。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧪</div>
+        <h3>PoC設計・開発PM支援</h3>
+        <p>生成AIを使ったPoCの検証目的、評価指標、開発範囲、運用へのつなげ方を整理。開発管理・顧客調整まで支援します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相談テーマ例 -->
+  <section id="topics">
+    <p class="section-label">Topics</p>
+    <h2 class="section-title">相談いただけるテーマ例</h2>
+    <div class="topic-list">
+      <div class="topic-item"><span>顧客からAI活用の相談を受けたが、技術的に判断できない</span></div>
+      <div class="topic-item"><span>業務システム化を進めたいが、要件がまとまっていない</span></div>
+      <div class="topic-item"><span>開発会社の見積や提案が妥当か確認したい</span></div>
+      <div class="topic-item"><span>生成AIを業務に活用したいが、導入方法が分からない</span></div>
+      <div class="topic-item"><span>PoCで終わらせず、実運用まで見据えた進め方を考えたい</span></div>
+      <div class="topic-item"><span>技術者とビジネス側の間に入り、プロジェクトを整理してほしい</span></div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section id="achievements">
+    <p class="section-label">Achievements</p>
+    <h2 class="section-title">実績</h2>
+
+    <div class="achievement">
+      <div class="achievement-header">
+        <div class="achievement-icon">🏢</div>
+        <h3>大東建託様 AI導入プロジェクト</h3>
+      </div>
+      <p>AI導入プロジェクトにおいて、コンサル兼PMとして、PoCから運用まで全体を担当しました。</p>
+      <div class="tag-list">
+        <span class="tag">要件整理</span>
+        <span class="tag">提案</span>
+        <span class="tag">設計</span>
+        <span class="tag">開発管理</span>
+        <span class="tag">顧客調整</span>
+        <span class="tag">運用改善</span>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header">
+        <div class="achievement-icon">⚙️</div>
+        <h3>機械学習・AI開発プロジェクト</h3>
+      </div>
+      <p>AIエンジニアとして、約3年間、機械学習導入プロジェクトに携わってきました。</p>
+      <div class="tag-list">
+        <span class="tag">生成AI機能開発</span>
+        <span class="tag">自然言語処理</span>
+        <span class="tag">画像解析</span>
+        <span class="tag">集計分析</span>
+        <span class="tag">与信モデル開発</span>
+        <span class="tag">業務AIシステム</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section id="strength">
+    <p class="section-label">Strengths</p>
+    <h2 class="section-title">強み</h2>
+    <div class="strength-box">
+      <p>私の強みは、技術が分かるコンサルとして、ビジネス側と開発側の橋渡しができることです。</p>
+      <p>AIやシステム開発では、技術的に実現可能かどうかだけでなく、業務に本当に使えるか、開発会社に正しく依頼できているか、運用までつながる設計になっているかが重要です。</p>
+      <p>エンジニアとしての実装経験と、PM・コンサルとしての顧客調整経験を活かし、技術判断とプロジェクト推進の両面から支援します。</p>
+    </div>
+  </section>
+
+  <!-- 協業イメージ -->
+  <section id="collaboration">
+    <p class="section-label">Collaboration</p>
+    <h2 class="section-title">協業イメージ</h2>
+    <div class="collab-box">
+      <p>直接お客様を取りにいく形ではなく、支援会社・士業・コンサルタントの方の外部パートナーとして、必要な場面で技術面を補完する関わり方が可能です。</p>
+      <p>たとえば、顧客からAI活用やシステム化の相談が出た際に、初期相談・要件整理・見積レビュー・PoC設計などをスポットで支援できます。</p>
+    </div>
+  </section>
+
+  <!-- プロフィール -->
+  <section id="profile">
+    <p class="section-label">Profile</p>
+    <h2 class="section-title">プロフィール</h2>
+    <div class="profile-card">
+      <p class="profile-name">大小原 翔太</p>
+      <p class="profile-title">AI導入支援 / コンサル</p>
+      <p class="profile-bio">中外製薬工業にて医薬品の製造・品質管理に従事した後、AIエンジニアへ転身。SES・フリーランスとして、機械学習、自然言語処理、画像解析、生成AI、業務システム開発など、幅広いAI・システム開発プロジェクトを経験。</p>
+      <p class="profile-bio">現在は、AI導入支援・要件整理・PoC設計・見積レビュー・生成AI導入支援を中心に、企業や支援会社の外部パートナーとして活動しています。</p>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">お問い合わせ</h2>
+    <div class="contact-box">
+      <p>協業相談、スポット相談、顧客案件の技術支援について、お気軽にご連絡ください。</p>
+      <a href="mailto:daikoharakanta@gmail.com" class="contact-mail">
+        ✉️ &nbsp;daikoharakanta@gmail.com
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 大小原 翔太. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
